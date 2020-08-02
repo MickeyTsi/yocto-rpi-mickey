@@ -1,0 +1,18 @@
+Quick start:
+
+Build:
+source oe-init-build-env
+bitbake rpi-mickey
+
+Deploy:
+dd if=build/tmp/deploy/images/raspberrypi4/rpi-mickey-raspberrypi4.rpi-sdimg of=<Your SD Card Device> bs=1M
+
+Enable wifi:
+ifconfig wlan0 up
+cp /etc/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant-nl80211-wlan0.conf
+systemctl start wpa_supplicant-nl80211@wlan0
+use wpa_cli to config network
+use "udhcpc -iwlan0" to get ip addr.
+
+adb integrated:
+adb connect <Your rpi's IP addr>
