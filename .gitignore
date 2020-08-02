@@ -1,5 +1,5 @@
 /build/*
-!/build/conf/*
+!/build/conf
 /yocto-3.1.0-rpi.si4project
 
 
