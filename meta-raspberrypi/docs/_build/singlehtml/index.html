@@ -1,0 +1,686 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>meta-raspberrypi master documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="None" href="index.html#document-index" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-meta-raspberrypi-s-documentation">
+<h1>Welcome to meta-raspberrypi&#8217;s documentation!<a class="headerlink" href="#welcome-to-meta-raspberrypi-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+<div class="toctree-wrapper compound">
+<span id="document-readme"></span><div class="section" id="meta-raspberrypi">
+<h2>meta-raspberrypi<a class="headerlink" href="#meta-raspberrypi" title="Permalink to this headline">¶</a></h2>
+<p>Yocto BSP layer for the Raspberry Pi boards - <a class="reference external" href="http://www.raspberrypi.org/">http://www.raspberrypi.org/</a>.</p>
+<p><a class="reference external" href="https://yocto-ci.resin.io/job/meta-raspberrypi1"><img alt="Build Status" src="https://yocto-ci.resin.io/job/meta-raspberrypi1/badge/icon" /></a>
+<a class="reference external" href="https://yocto-ci.resin.io/job/meta-raspberrypi2"><img alt="Build Status" src="https://yocto-ci.resin.io/job/meta-raspberrypi2/badge/icon" /></a>
+<a class="reference external" href="https://yocto-ci.resin.io/job/meta-raspberrypi3"><img alt="Build Status" src="https://yocto-ci.resin.io/job/meta-raspberrypi3/badge/icon" /></a>
+<a class="reference external" href="https://yocto-ci.resin.io/job/meta-raspberrypi4"><img alt="Build Status" src="https://yocto-ci.resin.io/job/meta-raspberrypi4/badge/icon" /></a>
+<a class="reference external" href="https://meta-raspberrypi.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/meta-raspberrypi/badge/?version=latest" /></a>
+<a class="reference external" href="index.html#meta-raspberrypi:cub.icu"><img alt="Matrix" src="https://img.shields.io/matrix/meta-raspberrypi:cub.icu.svg?server_fqdn=matrix.cub.icu" /></a></p>
+<div class="section" id="quick-links">
+<h3>Quick links<a class="headerlink" href="#quick-links" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Git repository web frontend:
+<a class="reference external" href="https://github.com/agherzan/meta-raspberrypi">https://github.com/agherzan/meta-raspberrypi</a></li>
+<li>Mailing list (yocto mailing list): <a class="reference external" href="mailto:yocto&#37;&#52;&#48;yoctoproject&#46;org">yocto<span>&#64;</span>yoctoproject<span>&#46;</span>org</a></li>
+<li>Issues management (Github Issues):
+<a class="reference external" href="https://github.com/agherzan/meta-raspberrypi/issues">https://github.com/agherzan/meta-raspberrypi/issues</a></li>
+<li>Documentation: <a class="reference external" href="http://meta-raspberrypi.readthedocs.io/en/latest/">http://meta-raspberrypi.readthedocs.io/en/latest/</a></li>
+</ul>
+</div>
+<div class="section" id="description">
+<h3>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>This is the general hardware specific BSP overlay for the RaspberryPi device.</p>
+<p>More information can be found at: <a class="reference external" href="http://www.raspberrypi.org/">http://www.raspberrypi.org/</a> (Official Site)</p>
+<p>The core BSP part of meta-raspberrypi should work with different
+OpenEmbedded/Yocto distributions and layer stacks, such as:</p>
+<ul class="simple">
+<li>Distro-less (only with OE-Core).</li>
+<li>Angstrom.</li>
+<li>Yocto/Poky (main focus of testing).</li>
+</ul>
+</div>
+<div class="section" id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
+<p>This layer depends on:</p>
+<ul class="simple">
+<li>URI: git://git.yoctoproject.org/poky<ul>
+<li>branch: master</li>
+<li>revision: HEAD</li>
+</ul>
+</li>
+<li>URI: git://git.openembedded.org/meta-openembedded<ul>
+<li>layers: meta-oe, meta-multimedia, meta-networking, meta-python</li>
+<li>branch: master</li>
+<li>revision: HEAD</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="quick-start">
+<h3>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li>source poky/oe-init-build-env rpi-build</li>
+<li>Add this layer to bblayers.conf and the dependencies above</li>
+<li>Set MACHINE in local.conf to one of the supported boards</li>
+<li>bitbake core-image-base</li>
+<li>dd to a SD card the generated sdimg file (use xzcat if rpi-sdimg.xz is used)</li>
+<li>Boot your RPI.</li>
+</ol>
+</div>
+<div class="section" id="quick-start-with-kas">
+<h3>Quick Start with kas<a class="headerlink" href="#quick-start-with-kas" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li>Install kas build tool from PyPi (sudo pip3 install kas)</li>
+<li>kas build meta-raspberrypi/kas-poky-rpi.yml</li>
+<li>dd to a SD card the generated sdimg file (use xzcat if rpi-sdimg.xz is used)</li>
+<li>Boot your RPI.</li>
+</ol>
+<p>To adjust the build configuration with specific options (I2C, SPI, ...), simply add
+a section as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre>local_conf_header:
+  rpi-specific: |
+    ENABLE_I2C = &quot;1&quot;
+    RPI_EXTRA_CONFIG = &quot;dtoverlay=pi3-disable-bt&quot;
+</pre></div>
+</div>
+<p>To configure the machine, you have to update the <code class="docutils literal"><span class="pre">machine</span></code> variable.
+And the same for the <code class="docutils literal"><span class="pre">distro</span></code>.</p>
+<p>For further information, you can read more at <a class="reference external" href="https://kas.readthedocs.io/en/1.0/index.html">https://kas.readthedocs.io/en/1.0/index.html</a></p>
+</div>
+<div class="section" id="maintainers">
+<h3>Maintainers<a class="headerlink" href="#maintainers" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Andrei Gherzan <code class="docutils literal"><span class="pre">&lt;andrei</span> <span class="pre">at</span> <span class="pre">gherzan.ro&gt;</span></code></li>
+</ul>
+</div>
+</div>
+<span id="document-layer-contents"></span><div class="section" id="layer-contents">
+<h2>Layer Contents<a class="headerlink" href="#layer-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="supported-machines">
+<h3>Supported Machines<a class="headerlink" href="#supported-machines" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>raspberrypi</li>
+<li>raspberrypi0</li>
+<li>raspberrypi0-wifi</li>
+<li>raspberrypi2</li>
+<li>raspberrypi3</li>
+<li>raspberrypi3-64 (64 bit kernel &amp; userspace)</li>
+<li>raspberrypi-cm (dummy alias for raspberrypi)</li>
+<li>raspberrypi-cm3</li>
+</ul>
+<p>Note: The raspberrypi3 machines include support for Raspberry Pi 3B+.</p>
+</div>
+<div class="section" id="images">
+<h3>Images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>rpi-test-image<ul>
+<li>Image based on core-image-base which includes most of the packages in this
+layer and some media samples.</li>
+</ul>
+</li>
+</ul>
+<p>For other uses it&#8216;s recommended to base images on <code class="docutils literal"><span class="pre">core-image-minimal</span></code> or
+<code class="docutils literal"><span class="pre">core-image-base</span></code> as appropriate. The old image names (<code class="docutils literal"><span class="pre">rpi-hwup-image</span></code> and
+<code class="docutils literal"><span class="pre">rpi-basic-image</span></code>) are deprecated.</p>
+</div>
+<div class="section" id="wifi-and-bluetooth-firmware">
+<h3>WiFi and Bluetooth Firmware<a class="headerlink" href="#wifi-and-bluetooth-firmware" title="Permalink to this headline">¶</a></h3>
+<p>Be aware that the WiFi and Bluetooth firmware for the supported boards
+is not available in the base version of <code class="docutils literal"><span class="pre">linux-firmware</span></code> from OE-Core
+(poky). The files are added from Raspbian repositories in this layer&#8216;s
+bbappends to that recipe. All machines define
+<code class="docutils literal"><span class="pre">MACHINE_EXTRA_RRECOMMENDS</span></code> to include the required wireless firmware;
+raspberrypi3 supports 3, 3B, and 3B+ and so include multiple firmware
+packages.</p>
+</div>
+</div>
+<span id="document-extra-build-config"></span><div class="section" id="optional-build-configuration">
+<h2>Optional build configuration<a class="headerlink" href="#optional-build-configuration" title="Permalink to this headline">¶</a></h2>
+<p>There are a set of ways in which a user can influence different paramenters of
+the build. We list here the ones that are closely related to this BSP or
+specific to it. For the rest please check:
+<a class="reference external" href="http://www.yoctoproject.org/docs/latest/ref-manual/ref-manual.html">http://www.yoctoproject.org/docs/latest/ref-manual/ref-manual.html</a></p>
+<div class="section" id="compressed-deployed-files">
+<h3>Compressed deployed files<a class="headerlink" href="#compressed-deployed-files" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li>Overwrite IMAGE_FSTYPES in local.conf<ul>
+<li><code class="docutils literal"><span class="pre">IMAGE_FSTYPES</span> <span class="pre">=</span> <span class="pre">&quot;tar.bz2</span> <span class="pre">ext3.xz&quot;</span></code></li>
+</ul>
+</li>
+<li>Overwrite SDIMG_ROOTFS_TYPE in local.conf<ul>
+<li><code class="docutils literal"><span class="pre">SDIMG_ROOTFS_TYPE</span> <span class="pre">=</span> <span class="pre">&quot;ext3.xz&quot;</span></code></li>
+</ul>
+</li>
+</ol>
+<p>Accommodate the values above to your own needs (ex: ext3 / ext4).</p>
+</div>
+<div class="section" id="gpu-memory">
+<h3>GPU memory<a class="headerlink" href="#gpu-memory" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">GPU_MEM</span></code>: GPU memory in megabyte. Sets the memory split between the ARM and
+GPU. ARM gets the remaining memory. Min 16. Default 64.</li>
+<li><code class="docutils literal"><span class="pre">GPU_MEM_256</span></code>: GPU memory in megabyte for the 256MB Raspberry Pi. Ignored by
+the 512MB RP. Overrides gpu_mem. Max 192. Default not set.</li>
+<li><code class="docutils literal"><span class="pre">GPU_MEM_512</span></code>: GPU memory in megabyte for the 512MB Raspberry Pi. Ignored by
+the 256MB RP. Overrides gpu_mem. Max 448. Default not set.</li>
+<li><code class="docutils literal"><span class="pre">GPU_MEM_1024</span></code>: GPU memory in megabyte for the 1024MB Raspberry Pi. Ignored by
+the 256MB/512MB RP. Overrides gpu_mem. Max 944. Default not set.</li>
+</ul>
+<p>See: <a class="reference external" href="https://www.raspberrypi.org/documentation/configuration/config-txt/memory">https://www.raspberrypi.org/documentation/configuration/config-txt/memory.md</a></p>
+</div>
+<div class="section" id="vc4">
+<h3>VC4<a class="headerlink" href="#vc4" title="Permalink to this headline">¶</a></h3>
+<p>By default, each machine uses <code class="docutils literal"><span class="pre">vc4</span></code> for graphics. This will in turn sets mesa as provider for <code class="docutils literal"><span class="pre">gl</span></code> libraries. <code class="docutils literal"><span class="pre">DISABLE_VC4GRAPHICS</span></code> can be set to <code class="docutils literal"><span class="pre">1</span></code> to disable this behaviour falling back to using <code class="docutils literal"><span class="pre">userland</span></code>. Be aware that <code class="docutils literal"><span class="pre">userland</span></code> has not support for 64-bit arch. If you disable <code class="docutils literal"><span class="pre">vc4</span></code> on a 64-bit Raspberry Pi machine, expect build breakage.</p>
+</div>
+<div class="section" id="add-purchased-license-codecs">
+<h3>Add purchased license codecs<a class="headerlink" href="#add-purchased-license-codecs" title="Permalink to this headline">¶</a></h3>
+<p>To add you own licenses use variables <code class="docutils literal"><span class="pre">KEY_DECODE_MPG2</span></code> and <code class="docutils literal"><span class="pre">KEY_DECODE_WVC1</span></code> in
+local.conf. Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">KEY_DECODE_MPG2</span> <span class="o">=</span> <span class="s2">&quot;12345678&quot;</span>
+<span class="n">KEY_DECODE_WVC1</span> <span class="o">=</span> <span class="s2">&quot;12345678&quot;</span>
+</pre></div>
+</div>
+<p>You can supply more licenses separated by comma. Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">KEY_DECODE_WVC1</span> <span class="o">=</span> <span class="s2">&quot;0x12345678,0xabcdabcd,0x87654321&quot;</span>
+</pre></div>
+</div>
+<p>See: <a class="reference external" href="https://www.raspberrypi.org/documentation/configuration/config-txt/codeclicence">https://www.raspberrypi.org/documentation/configuration/config-txt/codeclicence.md</a></p>
+</div>
+<div class="section" id="disable-overscan">
+<h3>Disable overscan<a class="headerlink" href="#disable-overscan" title="Permalink to this headline">¶</a></h3>
+<p>By default the GPU adds a black border around the video output to compensate for
+TVs which cut off part of the image. To disable this set this variable in
+local.conf:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">DISABLE_OVERSCAN</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="disable-splash-screen">
+<h3>Disable splash screen<a class="headerlink" href="#disable-splash-screen" title="Permalink to this headline">¶</a></h3>
+<p>By default a rainbow splash screen is shown after the GPU firmware is loaded.
+To disable this set this variable in local.conf:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">DISABLE_SPLASH</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="boot-delay">
+<h3>Boot delay<a class="headerlink" href="#boot-delay" title="Permalink to this headline">¶</a></h3>
+<p>The Raspberry Pi waits a number of seconds after loading the GPU firmware and
+before loading the kernel. By default it is one second. This is useful if your
+SD card needs a while to get ready before Linux is able to boot from it.
+To remove (or adjust) this delay set these variables in local.conf:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">BOOT_DELAY</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span>
+<span class="n">BOOT_DELAY_MS</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="set-overclocking-options">
+<h3>Set overclocking options<a class="headerlink" href="#set-overclocking-options" title="Permalink to this headline">¶</a></h3>
+<p>The Raspberry Pi can be overclocked. As of now overclocking up to the &#8220;Turbo
+Mode&#8220; is officially supported by the raspbery and does not void warranty. Check
+the config.txt for a detailed description of options and modes. The following
+variables are supported in local.conf: <code class="docutils literal"><span class="pre">ARM_FREQ</span></code>, <code class="docutils literal"><span class="pre">GPU_FREQ</span></code>, <code class="docutils literal"><span class="pre">CORE_FREQ</span></code>,
+<code class="docutils literal"><span class="pre">SDRAM_FREQ</span></code> and <code class="docutils literal"><span class="pre">OVER_VOLTAGE</span></code>.</p>
+<p>Example official settings for Turbo Mode in Raspberry Pi 2:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ARM_FREQ</span> <span class="o">=</span> <span class="s2">&quot;1000&quot;</span>
+<span class="n">CORE_FREQ</span> <span class="o">=</span> <span class="s2">&quot;500&quot;</span>
+<span class="n">SDRAM_FREQ</span> <span class="o">=</span> <span class="s2">&quot;500&quot;</span>
+<span class="n">OVER_VOLTAGE</span> <span class="o">=</span> <span class="s2">&quot;6&quot;</span>
+</pre></div>
+</div>
+<p>See: <a class="reference external" href="https://www.raspberrypi.org/documentation/configuration/config-txt/overclocking">https://www.raspberrypi.org/documentation/configuration/config-txt/overclocking.md</a></p>
+</div>
+<div class="section" id="hdmi-and-composite-video-options">
+<h3>HDMI and composite video options<a class="headerlink" href="#hdmi-and-composite-video-options" title="Permalink to this headline">¶</a></h3>
+<p>The Raspberry Pi can output video over HDMI or SDTV composite (the RCA connector).
+By default the video mode for these is autodetected on boot: the HDMI mode is
+selected according to the connected monitor&#8216;s EDID information and the composite
+mode is defaulted to NTSC using a 4:3 aspect ratio. Check the config.txt for a
+detailed description of options and modes. The following variables are supported in
+local.conf: <code class="docutils literal"><span class="pre">HDMI_FORCE_HOTPLUG</span></code>, <code class="docutils literal"><span class="pre">HDMI_DRIVE</span></code>, <code class="docutils literal"><span class="pre">HDMI_GROUP</span></code>, <code class="docutils literal"><span class="pre">HDMI_MODE</span></code>,
+<code class="docutils literal"><span class="pre">CONFIG_HDMI_BOOST</span></code>, <code class="docutils literal"><span class="pre">SDTV_MODE</span></code>, <code class="docutils literal"><span class="pre">SDTV_ASPECT</span></code> and <code class="docutils literal"><span class="pre">DISPLAY_ROTATE</span></code>.</p>
+<p>Example to force HDMI output to 720p in CEA mode:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">HDMI_GROUP</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+<span class="n">HDMI_MODE</span> <span class="o">=</span> <span class="s2">&quot;4&quot;</span>
+</pre></div>
+</div>
+<p>See: <a class="reference external" href="https://www.raspberrypi.org/documentation/configuration/config-txt/video">https://www.raspberrypi.org/documentation/configuration/config-txt/video.md</a></p>
+</div>
+<div class="section" id="video-camera-support-with-v4l2-drivers">
+<h3>Video camera support with V4L2 drivers<a class="headerlink" href="#video-camera-support-with-v4l2-drivers" title="Permalink to this headline">¶</a></h3>
+<p>Set this variable to enable support for the video camera (Linux 3.12.4+
+required):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">VIDEO_CAMERA</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enable-offline-compositing-support">
+<h3>Enable offline compositing support<a class="headerlink" href="#enable-offline-compositing-support" title="Permalink to this headline">¶</a></h3>
+<p>Set this variable to enable support for dispmanx offline compositing:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">DISPMANX_OFFLINE</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+<p>This will enable the firmware to fall back to off-line compositing of Dispmanx
+elements. Normally the compositing is done on-line, during scanout, but cannot
+handle too many elements. With off-line enabled, an off-screen buffer is
+allocated for compositing. When scene complexity (number and sizes
+of elements) is high, compositing will happen off-line into the buffer.</p>
+<p>Heavily recommended for Wayland/Weston.</p>
+<p>See: <a class="reference external" href="http://wayland.freedesktop.org/raspberrypi.html">http://wayland.freedesktop.org/raspberrypi.html</a></p>
+</div>
+<div class="section" id="enable-kgdb-over-console-support">
+<h3>Enable kgdb over console support<a class="headerlink" href="#enable-kgdb-over-console-support" title="Permalink to this headline">¶</a></h3>
+<p>To add the kdbg over console (kgdboc) parameter to the kernel command line, set
+this variable in local.conf:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ENABLE_KGDB</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="disable-rpi-boot-logo">
+<h3>Disable rpi boot logo<a class="headerlink" href="#disable-rpi-boot-logo" title="Permalink to this headline">¶</a></h3>
+<p>To disable rpi boot logo, set this variable in local.conf:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">DISABLE_RPI_BOOT_LOGO</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="boot-to-u-boot">
+<h3>Boot to U-Boot<a class="headerlink" href="#boot-to-u-boot" title="Permalink to this headline">¶</a></h3>
+<p>To have u-boot load kernel image, set in your local.conf:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">RPI_USE_U_BOOT</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+<p>This will select the appropriate image format for use with u-boot automatically.
+For further customisation the KERNEL_IMAGETYPE and KERNEL_BOOTCMD variables can
+be overridden to select the exact kernel image type (eg. zImage) and u-boot
+command (eg. bootz) to be used.</p>
+</div>
+<div class="section" id="image-with-initramfs">
+<h3>Image with Initramfs<a class="headerlink" href="#image-with-initramfs" title="Permalink to this headline">¶</a></h3>
+<p>To build an initramfs image:</p>
+<ul class="simple">
+<li>Set this 3 kernel variables (in kernel&#8216;s do_configure_prepend in linux-raspberrypi.inc after the line kernel_configure_variable LOCALVERSION &#8220;&#8220;&#8220;&#8220;
+)<ul>
+<li>kernel_configure_variable BLK_DEV_INITRD y</li>
+<li>kernel_configure_variable INITRAMFS_SOURCE &#8220;&#8220;</li>
+<li>kernel_configure_variable RD_GZIP y</li>
+</ul>
+</li>
+<li>Set the yocto variables (e.g. in local.conf)<ul>
+<li><code class="docutils literal"><span class="pre">INITRAMFS_IMAGE</span> <span class="pre">=</span> <span class="pre">&quot;&lt;name</span> <span class="pre">for</span> <span class="pre">your</span> <span class="pre">initramfs</span> <span class="pre">image&gt;&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">INITRAMFS_IMAGE_BUNDLE</span> <span class="pre">=</span> <span class="pre">&quot;1&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">BOOT_SPACE</span> <span class="pre">=</span> <span class="pre">&quot;1073741&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">INITRAMFS_MAXSIZE</span> <span class="pre">=</span> <span class="pre">&quot;315400&quot;</span></code></li>
+<li><code class="docutils literal"><span class="pre">IMAGE_FSTYPES_pn-${INITRAMFS_IMAGE}</span> <span class="pre">=</span> <span class="pre">&quot;${INITRAMFS_FSTYPES}&quot;</span></code></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="enable-spi-bus">
+<h3>Enable SPI bus<a class="headerlink" href="#enable-spi-bus" title="Permalink to this headline">¶</a></h3>
+<p>When using device tree kernels, set this variable to enable the SPI bus:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ENABLE_SPI_BUS</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enable-i2c">
+<h3>Enable I2C<a class="headerlink" href="#enable-i2c" title="Permalink to this headline">¶</a></h3>
+<p>When using device tree kernels, set this variable to enable I2C:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ENABLE_I2C</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+<p>Furthermore, to auto-load I2C kernel modules set:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">KERNEL_MODULE_AUTOLOAD_rpi</span> <span class="o">+=</span> <span class="s2">&quot;i2c-dev i2c-bcm2708&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enable-pitft-support">
+<h3>Enable PiTFT support<a class="headerlink" href="#enable-pitft-support" title="Permalink to this headline">¶</a></h3>
+<p>Basic support for using PiTFT screens can be enabled by adding below in
+local.conf:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">MACHINE_FEATURES</span> <span class="pre">+=</span> <span class="pre">&quot;pitft&quot;</span></code><ul>
+<li>This will enable SPI bus and i2c device-trees, it will also setup
+framebuffer for console and x server on PiTFT.</li>
+</ul>
+</li>
+</ul>
+<p>NOTE: To get this working the overlay for the PiTFT model must be build, added
+and specified as well (dtoverlay=<driver> in config.txt).</p>
+<p>Below is a list of currently supported PiTFT models in meta-raspberrypi, the
+modelname should be added as a MACHINE_FEATURES in local.conf like below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">MACHINE_FEATURES</span> <span class="o">+=</span> <span class="s2">&quot;pitft &lt;modelname&gt;&quot;</span>
+</pre></div>
+</div>
+<p>List of currently supported models:</p>
+<ul class="simple">
+<li>pitft22</li>
+<li>pitft28r</li>
+<li>pitft28c</li>
+<li>pitft35r</li>
+</ul>
+</div>
+<div class="section" id="misc-display">
+<h3>Misc. display<a class="headerlink" href="#misc-display" title="Permalink to this headline">¶</a></h3>
+<p>If you would like to use the Waveshare &#8220;C&#8220; 1024×600, 7 inch Capacitive Touch
+Screen LCD, HDMI interface (<a class="reference external" href="http://www.waveshare.com/7inch-HDMI-LCD-C.htm">http://www.waveshare.com/7inch-HDMI-LCD-C.htm</a>) Rev
+2.1, please set the following in your local.conf:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">WAVESHARE_1024X600_C_2_1</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enable-uart">
+<h3>Enable UART<a class="headerlink" href="#enable-uart" title="Permalink to this headline">¶</a></h3>
+<p>RaspberryPi 0, 1, 2 and CM will have UART console enabled by default.</p>
+<p>RaspberryPi 0 WiFi and 3 does not have the UART enabled by default because this
+needs a fixed core frequency and enable_uart wil set it to the minimum. Certain
+operations - 60fps h264 decode, high quality deinterlace - which aren&#8216;t
+performed on the ARM may be affected, and we wouldn&#8216;t want to do that to users
+who don&#8216;t want to use the serial port. Users who want serial console support on
+RaspberryPi 0 Wifi or 3 will have to explicitly set in local.conf:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ENABLE_UART</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+<p>Ref.:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/raspberrypi/firmware/issues/553">https://github.com/raspberrypi/firmware/issues/553</a></li>
+<li><a class="reference external" href="https://github.com/RPi-Distro/repo/issues/22">https://github.com/RPi-Distro/repo/issues/22</a></li>
+</ul>
+</div>
+<div class="section" id="enable-usb-peripheral-gadget-support">
+<h3>Enable USB Peripheral (Gadget) support<a class="headerlink" href="#enable-usb-peripheral-gadget-support" title="Permalink to this headline">¶</a></h3>
+<p>The standard USB driver only supports host mode operations.  Users who
+want to use gadget modules like g_ether should set the following in
+local.conf:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ENABLE_DWC2_PERIPHERAL</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="enable-openlabs-802-15-4-radio-module">
+<h3>Enable Openlabs 802.15.4 radio module<a class="headerlink" href="#enable-openlabs-802-15-4-radio-module" title="Permalink to this headline">¶</a></h3>
+<p>When using device tree kernels, set this variable to enable the 802.15.4 hat:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ENABLE_AT86RF</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+<p>See: <a class="reference external" href="https://openlabs.co/OSHW/Raspberry-Pi-802.15.4-radio">https://openlabs.co/OSHW/Raspberry-Pi-802.15.4-radio</a></p>
+</div>
+<div class="section" id="enable-can-with-pican2">
+<h3>Enable CAN with Pican2<a class="headerlink" href="#enable-can-with-pican2" title="Permalink to this headline">¶</a></h3>
+<p>In order to use Pican2 CAN module, set the following variables:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ENABLE_SPI_BUS</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+<span class="n">ENABLE_CAN</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+</pre></div>
+</div>
+<p>See: <a class="reference external" href="http://skpang.co.uk/catalog/pican2-canbus-board-for-raspberry-pi-23-p-1475.html">http://skpang.co.uk/catalog/pican2-canbus-board-for-raspberry-pi-23-p-1475.html</a></p>
+</div>
+<div class="section" id="manual-additions-to-config-txt">
+<h3>Manual additions to config.txt<a class="headerlink" href="#manual-additions-to-config-txt" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal"><span class="pre">RPI_EXTRA_CONFIG</span></code> variable can be used to manually add additional lines to
+the <code class="docutils literal"><span class="pre">config.txt</span></code> file if there is not a specific option above for the
+configuration you need. To add multiple lines you must include <code class="docutils literal"><span class="pre">\n</span></code> separators.
+If double-quotes are needed in the lines you are adding you can use single
+quotes around the whole string.</p>
+<p>For example, to add a comment containing a double-quote and a configuration
+option:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">RPI_EXTRA_CONFIG</span> <span class="o">=</span> <span class="s1">&#39; </span><span class="se">\n</span><span class="s1"> </span><span class="se">\</span>
+<span class="s1">    # Raspberry Pi 7</span><span class="se">\&quot;</span><span class="s1"> display/touch screen </span><span class="se">\n</span><span class="s1"> </span><span class="se">\</span>
+<span class="s1">    lcd_rotate=2 </span><span class="se">\n</span><span class="s1"> </span><span class="se">\</span>
+<span class="s1">    &#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<span id="document-extra-apps"></span><div class="section" id="extra-apps">
+<h2>Extra apps<a class="headerlink" href="#extra-apps" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="omxplayer">
+<h3>omxplayer<a class="headerlink" href="#omxplayer" title="Permalink to this headline">¶</a></h3>
+<p>omxplayer depends on libav which has a commercial license. So in order to be
+able to compile omxplayer you will need to whiteflag the commercial
+license in your local.conf:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">LICENSE_FLAGS_WHITELIST</span> <span class="o">=</span> <span class="s2">&quot;commercial&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<span id="document-contributing"></span><div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mailing-list">
+<h3>Mailing list<a class="headerlink" href="#mailing-list" title="Permalink to this headline">¶</a></h3>
+<p>The main communication tool in use is the Yocto Project mailing list:</p>
+<ul class="simple">
+<li><a class="reference external" href="mailto:yocto&#37;&#52;&#48;yoctoproject&#46;org">yocto<span>&#64;</span>yoctoproject<span>&#46;</span>org</a></li>
+<li><a class="reference external" href="https://lists.yoctoproject.org/listinfo/yocto">https://lists.yoctoproject.org/listinfo/yocto</a></li>
+</ul>
+<p>Feel free to ask any kind of questions but please always prepend your email
+subject with <code class="docutils literal"><span class="pre">[meta-raspberrypi]</span></code> as this is the global <em>Yocto</em> mailing
+list and not a dedicated <em>meta-raspberrypi</em> mailing list.</p>
+</div>
+<div class="section" id="formatting-patches">
+<h3>Formatting patches<a class="headerlink" href="#formatting-patches" title="Permalink to this headline">¶</a></h3>
+<p>First and foremost, all of the contributions to the layer must be compliant
+with the standard openembedded patch guidelines:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.openembedded.org/wiki/Commit_Patch_Message_Guidelines">http://www.openembedded.org/wiki/Commit_Patch_Message_Guidelines</a></li>
+</ul>
+<p>In summary, your commit log messages should be formatted as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;layer-component&gt;: &lt;short log/statement of what needed to be changed&gt;
+
+(Optional pointers to external resources, such as defect tracking)
+
+The intent of your change.
+
+(Optional: if it&#39;s not clear from above, how your change resolves
+the issues in the first part)
+
+Signed-off-by: Your Name &lt;yourname@youremail.com&gt;
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">&lt;layer-component&gt;</span></code> is the layer component name that your changes affect.
+It is important that you choose it correctly. A simple guide for selecting a
+a good component name is the following:</p>
+<ul class="simple">
+<li>For changes that affect <em>layer recipes</em>, please just use the <strong>base names</strong>
+of the affected recipes, separated by commas (<code class="docutils literal"><span class="pre">,</span></code>), as the component name.
+For example: use <code class="docutils literal"><span class="pre">omxplayer</span></code> instead of <code class="docutils literal"><span class="pre">omxplayer_git.bb</span></code>. If you are
+adding new recipe(s), just use the new recipe(s) base name(s). An example
+for changes to multiple recipes would be <code class="docutils literal"><span class="pre">userland,vc-graphics,wayland</span></code>.</li>
+<li>For changes that affect the <em>layer documentation</em>, please just use <code class="docutils literal"><span class="pre">docs</span></code>
+as the component name.</li>
+<li>For changes that affect <em>other files</em>, i.e. under the <code class="docutils literal"><span class="pre">conf</span></code> directory,
+please use the full path as the component name, e.g. <code class="docutils literal"><span class="pre">conf/layer.conf</span></code>.</li>
+<li>For changes that affect the <em>layer itself</em> and do not fall into any of
+the above cases, please use <code class="docutils literal"><span class="pre">meta-raspberrypi</span></code> as the component name.</li>
+</ul>
+<p>A full example of a suitable commit log message is below:</p>
+<div class="highlight-python"><div class="highlight"><pre>foobar: Adjusted the foo setting in bar
+
+When using foobar on systems with less than a gigabyte of RAM common
+usage patterns often result in an Out-of-memory condition causing
+slowdowns and unexpected application termination.
+
+Low-memory systems should continue to function without running into
+memory-starvation conditions with minimal cost to systems with more
+available memory.  High-memory systems will be less able to use the
+full extent of the system, a dynamically tunable option may be best,
+long-term.
+
+The foo setting in bar was decreased from X to X-50% in order to
+ensure we don&#39;t exhaust all system memory with foobar threads.
+
+Signed-off-by: Joe Developer &lt;joe.developer@example.com&gt;
+</pre></div>
+</div>
+<p>A common issue during patch reviewing is commit log formatting, please review
+the above formatting guidelines carefully before sending your patches.</p>
+</div>
+<div class="section" id="sending-patches">
+<h3>Sending patches<a class="headerlink" href="#sending-patches" title="Permalink to this headline">¶</a></h3>
+<p>The preferred method to contribute to this project is to send pull
+requests to the GitHub mirror of the layer:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/agherzan/meta-raspberrypi">https://github.com/agherzan/meta-raspberrypi</a></li>
+</ul>
+<p><strong>In addition</strong>, you may send patches for review to the above specified
+mailing list. In this case, when creating patches using <code class="docutils literal"><span class="pre">git</span></code> please make
+sure to use the following formatting for the message subject:</p>
+<div class="highlight-python"><div class="highlight"><pre>git format-patch -s --subject-prefix=&#39;meta-raspberrypi][PATCH&#39; origin
+</pre></div>
+</div>
+<p>Then, for sending patches to the mailing list, you may use this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>git send-email --to yocto@yoctoproject.org &lt;generated patch&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="github-issues">
+<h3>GitHub issues<a class="headerlink" href="#github-issues" title="Permalink to this headline">¶</a></h3>
+<p>In order to manage and track the layer issues more efficiently, the
+GitHub issues facility is used by this project:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/agherzan/meta-raspberrypi/issues">https://github.com/agherzan/meta-raspberrypi/issues</a></li>
+</ul>
+<p>If you submit patches that have a GitHub issue associated, please make sure to
+use standard GitHub keywords, e.g. <code class="docutils literal"><span class="pre">closes</span></code>, <code class="docutils literal"><span class="pre">resolves</span></code> or <code class="docutils literal"><span class="pre">fixes</span></code>, before the
+&#8220;Signed-off-by&#8220; tag to close the relevant issues automatically:</p>
+<div class="highlight-python"><div class="highlight"><pre>foobar: Adjusted the foo setting in bar
+
+Fixes: #324
+
+Signed-off-by: Joe Developer &lt;joe.developer@example.com&gt;
+</pre></div>
+</div>
+<p>More information on the available GitHub close keywords can be found here:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://help.github.com/articles/closing-issues-using-keywords">https://help.github.com/articles/closing-issues-using-keywords</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html#document-index">Table Of Contents</a></h3>
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-readme">meta-raspberrypi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#quick-links">Quick links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#quick-start-with-kas">Quick Start with kas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#maintainers">Maintainers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-layer-contents">Layer Contents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#supported-machines">Supported Machines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#images">Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#wifi-and-bluetooth-firmware">WiFi and Bluetooth Firmware</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-extra-build-config">Optional build configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#compressed-deployed-files">Compressed deployed files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#gpu-memory">GPU memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#vc4">VC4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#add-purchased-license-codecs">Add purchased license codecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#disable-overscan">Disable overscan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#disable-splash-screen">Disable splash screen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#boot-delay">Boot delay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#set-overclocking-options">Set overclocking options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#hdmi-and-composite-video-options">HDMI and composite video options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#video-camera-support-with-v4l2-drivers">Video camera support with V4L2 drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#enable-offline-compositing-support">Enable offline compositing support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#enable-kgdb-over-console-support">Enable kgdb over console support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#disable-rpi-boot-logo">Disable rpi boot logo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#boot-to-u-boot">Boot to U-Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#image-with-initramfs">Image with Initramfs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#enable-spi-bus">Enable SPI bus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#enable-i2c">Enable I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#enable-pitft-support">Enable PiTFT support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#misc-display">Misc. display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#enable-uart">Enable UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#enable-usb-peripheral-gadget-support">Enable USB Peripheral (Gadget) support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#enable-openlabs-802-15-4-radio-module">Enable Openlabs 802.15.4 radio module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#enable-can-with-pican2">Enable CAN with Pican2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#manual-additions-to-config-txt">Manual additions to config.txt</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-extra-apps">Extra apps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#omxplayer">omxplayer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-contributing">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="index.html#mailing-list">Mailing list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#formatting-patches">Formatting patches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#sending-patches">Sending patches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#github-issues">GitHub issues</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html#document-index">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, meta-raspberrypi contributors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

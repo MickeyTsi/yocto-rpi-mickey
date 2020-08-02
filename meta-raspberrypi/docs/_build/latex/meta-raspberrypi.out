@@ -1,0 +1,38 @@
+\BOOKMARK [0][-]{chapter.1}{meta-raspberrypi}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Quick links}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Description}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Dependencies}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{Quick Start}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.5}{Quick Start with kas}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.6}{Maintainers}{chapter.1}% 7
+\BOOKMARK [0][-]{chapter.2}{Layer Contents}{}% 8
+\BOOKMARK [1][-]{section.2.1}{Supported Machines}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.2}{Images}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.3}{WiFi and Bluetooth Firmware}{chapter.2}% 11
+\BOOKMARK [0][-]{chapter.3}{Optional build configuration}{}% 12
+\BOOKMARK [1][-]{section.3.1}{Compressed deployed files}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.2}{GPU memory}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.3}{VC4}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.4}{Add purchased license codecs}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.5}{Disable overscan}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.6}{Disable splash screen}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.7}{Boot delay}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.8}{Set overclocking options}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.9}{HDMI and composite video options}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.10}{Video camera support with V4L2 drivers}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.11}{Enable offline compositing support}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.12}{Enable kgdb over console support}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.13}{Disable rpi boot logo}{chapter.3}% 25
+\BOOKMARK [1][-]{section.3.14}{Boot to U-Boot}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.15}{Image with Initramfs}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.16}{Enable SPI bus}{chapter.3}% 28
+\BOOKMARK [1][-]{section.3.17}{Enable I2C}{chapter.3}% 29
+\BOOKMARK [1][-]{section.3.18}{Enable PiTFT support}{chapter.3}% 30
+\BOOKMARK [1][-]{section.3.19}{Misc. display}{chapter.3}% 31
+\BOOKMARK [1][-]{section.3.20}{Enable UART}{chapter.3}% 32
+\BOOKMARK [1][-]{section.3.21}{Enable USB Peripheral \(Gadget\) support}{chapter.3}% 33
+\BOOKMARK [1][-]{section.3.22}{Enable Openlabs 802.15.4 radio module}{chapter.3}% 34
+\BOOKMARK [1][-]{section.3.23}{Enable CAN with Pican2}{chapter.3}% 35
+\BOOKMARK [1][-]{section.3.24}{Manual additions to config.txt}{chapter.3}% 36
+\BOOKMARK [0][-]{chapter.4}{Extra apps}{}% 37
+\BOOKMARK [1][-]{section.4.1}{omxplayer}{chapter.4}% 38

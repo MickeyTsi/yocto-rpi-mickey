@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Contributing &mdash; meta-raspberrypi master documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     'master',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="meta-raspberrypi master documentation" href="index.html" />
+    <link rel="prev" title="Extra apps" href="extra-apps.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mailing-list">
+<h2>Mailing list<a class="headerlink" href="#mailing-list" title="Permalink to this headline">¶</a></h2>
+<p>The main communication tool in use is the Yocto Project mailing list:</p>
+<ul class="simple">
+<li><a class="reference external" href="mailto:yocto&#37;&#52;&#48;yoctoproject&#46;org">yocto<span>&#64;</span>yoctoproject<span>&#46;</span>org</a></li>
+<li><a class="reference external" href="https://lists.yoctoproject.org/listinfo/yocto">https://lists.yoctoproject.org/listinfo/yocto</a></li>
+</ul>
+<p>Feel free to ask any kind of questions but please always prepend your email
+subject with <code class="docutils literal"><span class="pre">[meta-raspberrypi]</span></code> as this is the global <em>Yocto</em> mailing
+list and not a dedicated <em>meta-raspberrypi</em> mailing list.</p>
+</div>
+<div class="section" id="formatting-patches">
+<h2>Formatting patches<a class="headerlink" href="#formatting-patches" title="Permalink to this headline">¶</a></h2>
+<p>First and foremost, all of the contributions to the layer must be compliant
+with the standard openembedded patch guidelines:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.openembedded.org/wiki/Commit_Patch_Message_Guidelines">http://www.openembedded.org/wiki/Commit_Patch_Message_Guidelines</a></li>
+</ul>
+<p>In summary, your commit log messages should be formatted as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;layer-component&gt;: &lt;short log/statement of what needed to be changed&gt;
+
+(Optional pointers to external resources, such as defect tracking)
+
+The intent of your change.
+
+(Optional: if it&#39;s not clear from above, how your change resolves
+the issues in the first part)
+
+Signed-off-by: Your Name &lt;yourname@youremail.com&gt;
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">&lt;layer-component&gt;</span></code> is the layer component name that your changes affect.
+It is important that you choose it correctly. A simple guide for selecting a
+a good component name is the following:</p>
+<ul class="simple">
+<li>For changes that affect <em>layer recipes</em>, please just use the <strong>base names</strong>
+of the affected recipes, separated by commas (<code class="docutils literal"><span class="pre">,</span></code>), as the component name.
+For example: use <code class="docutils literal"><span class="pre">omxplayer</span></code> instead of <code class="docutils literal"><span class="pre">omxplayer_git.bb</span></code>. If you are
+adding new recipe(s), just use the new recipe(s) base name(s). An example
+for changes to multiple recipes would be <code class="docutils literal"><span class="pre">userland,vc-graphics,wayland</span></code>.</li>
+<li>For changes that affect the <em>layer documentation</em>, please just use <code class="docutils literal"><span class="pre">docs</span></code>
+as the component name.</li>
+<li>For changes that affect <em>other files</em>, i.e. under the <code class="docutils literal"><span class="pre">conf</span></code> directory,
+please use the full path as the component name, e.g. <code class="docutils literal"><span class="pre">conf/layer.conf</span></code>.</li>
+<li>For changes that affect the <em>layer itself</em> and do not fall into any of
+the above cases, please use <code class="docutils literal"><span class="pre">meta-raspberrypi</span></code> as the component name.</li>
+</ul>
+<p>A full example of a suitable commit log message is below:</p>
+<div class="highlight-python"><div class="highlight"><pre>foobar: Adjusted the foo setting in bar
+
+When using foobar on systems with less than a gigabyte of RAM common
+usage patterns often result in an Out-of-memory condition causing
+slowdowns and unexpected application termination.
+
+Low-memory systems should continue to function without running into
+memory-starvation conditions with minimal cost to systems with more
+available memory.  High-memory systems will be less able to use the
+full extent of the system, a dynamically tunable option may be best,
+long-term.
+
+The foo setting in bar was decreased from X to X-50% in order to
+ensure we don&#39;t exhaust all system memory with foobar threads.
+
+Signed-off-by: Joe Developer &lt;joe.developer@example.com&gt;
+</pre></div>
+</div>
+<p>A common issue during patch reviewing is commit log formatting, please review
+the above formatting guidelines carefully before sending your patches.</p>
+</div>
+<div class="section" id="sending-patches">
+<h2>Sending patches<a class="headerlink" href="#sending-patches" title="Permalink to this headline">¶</a></h2>
+<p>The preferred method to contribute to this project is to send pull
+requests to the GitHub mirror of the layer:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/agherzan/meta-raspberrypi">https://github.com/agherzan/meta-raspberrypi</a></li>
+</ul>
+<p><strong>In addition</strong>, you may send patches for review to the above specified
+mailing list. In this case, when creating patches using <code class="docutils literal"><span class="pre">git</span></code> please make
+sure to use the following formatting for the message subject:</p>
+<div class="highlight-python"><div class="highlight"><pre>git format-patch -s --subject-prefix=&#39;meta-raspberrypi][PATCH&#39; origin
+</pre></div>
+</div>
+<p>Then, for sending patches to the mailing list, you may use this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>git send-email --to yocto@yoctoproject.org &lt;generated patch&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="github-issues">
+<h2>GitHub issues<a class="headerlink" href="#github-issues" title="Permalink to this headline">¶</a></h2>
+<p>In order to manage and track the layer issues more efficiently, the
+GitHub issues facility is used by this project:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/agherzan/meta-raspberrypi/issues">https://github.com/agherzan/meta-raspberrypi/issues</a></li>
+</ul>
+<p>If you submit patches that have a GitHub issue associated, please make sure to
+use standard GitHub keywords, e.g. <code class="docutils literal"><span class="pre">closes</span></code>, <code class="docutils literal"><span class="pre">resolves</span></code> or <code class="docutils literal"><span class="pre">fixes</span></code>, before the
+&#8220;Signed-off-by&#8220; tag to close the relevant issues automatically:</p>
+<div class="highlight-python"><div class="highlight"><pre>foobar: Adjusted the foo setting in bar
+
+Fixes: #324
+
+Signed-off-by: Joe Developer &lt;joe.developer@example.com&gt;
+</pre></div>
+</div>
+<p>More information on the available GitHub close keywords can be found here:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://help.github.com/articles/closing-issues-using-keywords">https://help.github.com/articles/closing-issues-using-keywords</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Contributing</a><ul>
+<li><a class="reference internal" href="#mailing-list">Mailing list</a></li>
+<li><a class="reference internal" href="#formatting-patches">Formatting patches</a></li>
+<li><a class="reference internal" href="#sending-patches">Sending patches</a></li>
+<li><a class="reference internal" href="#github-issues">GitHub issues</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="extra-apps.html" title="previous chapter">Extra apps</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/contributing.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, meta-raspberrypi contributors.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/contributing.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
